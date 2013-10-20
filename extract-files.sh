@@ -5,10 +5,12 @@ rm -rf $BASE/*
 
 for FILE in `egrep -v '(^#|^$)' proprietary-files.txt`; do
   DIR=`dirname $FILE`
-  if [ ! -d $BASE ]; then
-    mkdir -p $BASE
+  if [ ! -d $BASE/system/$DIR ]; then
+    mkdir -p $BASE/system/$DIR
   fi
-  adb pull system/$FILE $BASE/system/$FILE
+  adb pull /system/$FILE $BASE/system/$FILE
 done
+
+adb pull /system/lib/hw/camera.default.so $BASE/system/lib/hw/vendor-camera.shooterk.so
 
 ./setup-makefiles.sh
