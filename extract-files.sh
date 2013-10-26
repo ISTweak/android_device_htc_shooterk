@@ -11,6 +11,6 @@ for FILE in `egrep -v '(^#|^$)' proprietary-files.txt`; do
   adb pull /system/$FILE $BASE/system/$FILE
 done
 
-adb pull /system/lib/hw/camera.default.so $BASE/system/lib/hw/vendor-camera.shooterk.so
+adb pull /system/lib/hw/camera.default.so $BASE/system/lib/hw/vendor-camera.msm8660.so
 
 ./setup-makefiles.sh

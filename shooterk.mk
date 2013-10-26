@@ -16,7 +16,7 @@
 
 COMMON_PATH := device/htc/shooterk
 
-DEVICE_PACKAGE_OVERLAYS += device/htc/shooter-common/overlay-cdma
+DEVICE_PACKAGE_OVERLAYS += $(COMMON_PATH)/overlay-shooterk
 
 # common shooter configs
 $(call inherit-product, device/htc/shooter-common/shooter-common.mk)

@@ -45,7 +45,7 @@ PRODUCT_COPY_FILES += \\
 
 # Prebuilt libraries that are needed to build open-source libraries
 PRODUCT_COPY_FILES += \\
-	vendor/htc/shooterk/proprietary/system/lib/hw/vendor-camera.shooterk.so:obj/lib/hw/vendor-camera.shooterk.so \\
+	vendor/htc/shooterk/proprietary/system/lib/hw/vendor-camera.msm8660.so:obj/lib/hw/vendor-camera.msm8660.so \\
 	vendor/htc/shooterk/proprietary/system/lib/libaudioalsa.so:obj/lib/libaudioalsa.so \\
 	vendor/htc/shooterk/proprietary/system/lib/libacdbmapper.so:obj/lib/libacdbmapper.so
 
