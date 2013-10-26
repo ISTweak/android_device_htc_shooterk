@@ -63,4 +63,4 @@ lib/libqmiservices.so
 lib/libWVphoneAPI.so
 xbin/wireless_modem
 lib/hw/sensors.shooterk.so
-lib/hw/vendor-camera.shooterk.so
+lib/hw/vendor-camera.msm8660.so
