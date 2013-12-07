@@ -1,14 +1,9 @@
 bin/3D_calibration
 bin/3D_calibration_main
-bin/charging
 bin/dmagent
 bin/getWiMAXPropDaemond
-bin/htcbatt
 bin/load-modem.sh
 bin/logcat2
-bin/netmgrd
-bin/qmuxd
-bin/rmt_storage
 bin/sequansd
 bin/setWiMAXPropDaemond
 bin/sound8x60
@@ -36,7 +31,6 @@ lib/libdll.so
 lib/libdmtree.so
 lib/libdsi_netctrl.so
 lib/libdsutils.so
-lib/libfrsdk.so
 lib/libgemini.so
 lib/libgemini2.so
 lib/libhtc_acoustic.so
@@ -60,7 +54,6 @@ lib/libqc-opt.so
 lib/libqdp.so
 lib/libqmi.so
 lib/libqmiservices.so
-lib/libWVphoneAPI.so
 xbin/wireless_modem
 lib/hw/sensors.shooterk.so
 lib/hw/vendor-camera.msm8660.so
