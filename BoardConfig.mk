@@ -43,9 +43,9 @@ BOARD_HAVE_SQN_WIMAX := true
 
 # Kernel Details
 TARGET_KERNEL_CONFIG := shooter_defconfig
-#TARGET_KERNEL_CUSTOM_TOOLCHAIN := linaro-arm-cortex-a8
-#TARGET_KERNEL_CUSTOM_TOOLCHAIN_SUFFIX := arm-cortex_a8-linux-gnueabi
-BOARD_KERNEL_CMDLINE := console=ttyHSL0 androidboot.hardware=shooterk no_console_suspend=1 androidboot.selinux=permissive
+TARGET_KERNEL_CUSTOM_TOOLCHAIN := linaro48x
+TARGET_KERNEL_CUSTOM_TOOLCHAIN_SUFFIX := arm-eabi
+BOARD_KERNEL_CMDLINE := console=ttyHSL0 androidboot.hardware=shooterk no_console_suspend=1
 BOARD_KERNEL_BASE := 0x48000000
 BOARD_KERNEL_PAGE_SIZE := 2048
 
