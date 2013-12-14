@@ -42,8 +42,12 @@ COMMON_GLOBAL_CFLAGS += -DBOARD_HAVE_SQN_WIMAX
 BOARD_HAVE_SQN_WIMAX := true
 
 # Kernel Details
-TARGET_KERNEL_CONFIG := shooter_defconfig
+TARGET_KERNEL_SOURCE := kernel/htc/shooterk
+TARGET_KERNEL_CONFIG := shooterk_defconfig
 TARGET_KERNEL_CUSTOM_TOOLCHAIN := linaro48x
+
+#TARGET_KERNEL_CONFIG := shooter_defconfig
+#TARGET_KERNEL_CUSTOM_TOOLCHAIN := linaro47x
 TARGET_KERNEL_CUSTOM_TOOLCHAIN_SUFFIX := arm-eabi
 BOARD_KERNEL_CMDLINE := console=ttyHSL0 androidboot.hardware=shooterk no_console_suspend=1
 BOARD_KERNEL_BASE := 0x48000000
