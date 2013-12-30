@@ -1,9 +1,14 @@
 bin/3D_calibration
 bin/3D_calibration_main
+bin/charging
 bin/dmagent
 bin/getWiMAXPropDaemond
+bin/htcbatt
 bin/load-modem.sh
 bin/logcat2
+bin/netmgrd
+bin/qmuxd
+bin/rmt_storage
 bin/sequansd
 bin/setWiMAXPropDaemond
 bin/sound8x60
@@ -36,6 +41,7 @@ lib/libgemini2.so
 lib/libhtc_acoustic.so
 lib/libhtc_ril.so
 lib/libhtc_ril_switch.so
+#lib/libhtcdm.so
 lib/libidl.so
 lib/libmllite.so
 lib/libmlplatform.so
@@ -56,4 +62,4 @@ lib/libqmi.so
 lib/libqmiservices.so
 xbin/wireless_modem
 lib/hw/sensors.shooterk.so
-lib/hw/vendor-camera.msm8660.so
+lib/hw/camera.vendor.msm8660.so

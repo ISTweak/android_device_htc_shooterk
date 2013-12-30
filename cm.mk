@@ -8,7 +8,7 @@ $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 # Inherit device configuration
 $(call inherit-product, device/htc/shooterk/shooterk.mk)
 
-PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=htc_shooterk BUILD_FINGERPRINT="KDDI/HTI12/shooterk:4.0.3/IML74K/447280.7:user/release-keys" PRIVATE_BUILD_DESC="2.29.970.7 CL447280 release-keys"
+PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=htc_shooterk BUILD_FINGERPRINT="KDDI/HTI12/shooterk:4.0.3/IML74K/685720:user/release-keys" PRIVATE_BUILD_DESC="2.31.970.1 CL685720 release-keys"
 
 # Device naming
 PRODUCT_DEVICE := shooterk
