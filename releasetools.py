@@ -21,10 +21,4 @@ import shutil
 
 def FullOTA_Assertions(info):
   info.script.AppendExtra('assert(getprop("ro.bootloader") == "1.63.2211" || getprop("ro.bootloader") == "1.63.0000");')
-  info.script.AppendExtra('run_program("/sbin/busybox", "mount", "/data");')
-  info.script.AppendExtra('delete_recursive("/data/wimax/log");')
-  info.script.AppendExtra('run_program("/sbin/busybox", "mkdir", "/data/wimax");')
-  info.script.AppendExtra('run_program("/sbin/busybox", "mkdir", "/data/wimax/log");')
-  info.script.AppendExtra('run_program("/sbin/busybox", "chattr", "+i", "/data/wimax/log");')
-  info.script.AppendExtra('unmount("/data");')
-  
+

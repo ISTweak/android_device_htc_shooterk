@@ -24,8 +24,11 @@
 # variant, so that it gets overwritten by the parent (which goes
 # against the traditional rules of inheritance).
 
-# inherit from common shooter
--include device/htc/shooter-common/BoardConfigCommon.mk
+# inherit from common msm8660
+-include device/htc/msm8660-common/BoardConfigCommon.mk
+
+# Broadcom specific config
+-include device/htc/msm8660-common/bcmdhd.mk
 
 # inherit from the proprietary version
 -include vendor/htc/shooterk/BoardConfigVendor.mk
@@ -36,27 +39,40 @@ TARGET_BOOTLOADER_BOARD_NAME := shooterk
 
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := shooterk
 
-# CDMA Ril and Wimax Support
-BOARD_USES_LEGACY_RIL := true
-COMMON_GLOBAL_CFLAGS += -DBOARD_HAVE_SQN_WIMAX
-BOARD_HAVE_SQN_WIMAX := true
+#Ril
+BOARD_USE_NEW_LIBRIL_HTC := true
+
+#COMMON_GLOBAL_CFLAGS += -DBOARD_HAVE_SQN_WIMAX
+#BOARD_HAVE_SQN_WIMAX := true
 
 # Kernel Details
-TARGET_KERNEL_CONFIG := shooterk_defconfig
-TARGET_KERNEL_CUSTOM_TOOLCHAIN := linaro-arm-cortex-a8
-TARGET_KERNEL_CUSTOM_TOOLCHAIN_SUFFIX := arm-cortex_a8-linux-gnueabi
+TARGET_KERNEL_CONFIG := shooter_defconfig
 BOARD_KERNEL_CMDLINE := console=ttyHSL0 androidboot.hardware=shooterk no_console_suspend=1
 BOARD_KERNEL_BASE := 0x48000000
 BOARD_KERNEL_PAGE_SIZE := 2048
 
+# Kernel
+TARGET_KERNEL_SOURCE   := kernel/htc/shooter
+TARGET_KERNEL_CUSTOM_TOOLCHAIN := sm-arm-eabi-4.7
+TARGET_GCC_VERSION_ARM := sm-arm-eabi-4.7
+
+#ION
+TARGET_USES_ION := true
+
+# Camera
+BOARD_HTC_3D_SUPPORT := true
+
+# Bootanimation
+TARGET_BOOTANIMATION_TEXTURE_CACHE := true
+TARGET_BOOTANIMATION_USE_RGB565 := true
+
 # Releasetools
 TARGET_RELEASETOOLS_EXTENSIONS := device/htc/shooterk
 
-# RIL
-COMMON_GLOBAL_CFLAGS += -DNEW_LIBRIL_HTC
-
-# Filesystem
-BOARD_VOLD_MAX_PARTITIONS := 36
+# Vendor Init
+# TARGET_INIT_VENDOR_LIB := libinit_msm
+# TARGET_LIBINIT_DEFINES_FILE := device/htc/shooterk/init/init_shooterk.c
+# TARGET_UNIFIED_DEVICE := true
 
 # cat /proc/emmc
 #dev:        size     erasesize name
@@ -78,36 +94,24 @@ BOARD_VOLD_MAX_PARTITIONS := 36
 # mmcblk0p8:  00c00200 00000200 "wimax"
 # mmcblk0p34: 007ffa00 00000200 "udata_wimax"
 
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 838859776
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 1252770816
-BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216
-
 # Custom lun file path
-TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/msm_otg/msm_hsusb/gadget/lun%d/file"
+TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/class/android_usb/android0/f_mass_storage/lun%d/file"
 
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_FLASH_BLOCK_SIZE := 262144
 BOARD_SDCARD_DEVICE_PRIMARY := /dev/block/mmcblk1p1
 BOARD_SDCARD_DEVICE_SECONDARY := /dev/block/mmcblk1
 BOARD_SDEXT_DEVICE := /dev/block/mmcblk1p2
-BOARD_USES_MMCUTILS := true
 BOARD_HAS_NO_MISC_PARTITION := true
-#BOARD_HAS_NO_SELECT_BUTTON := true
 
-RECOVERY_FSTAB_VERSION := 2
-TARGET_RECOVERY_PIXEL_FORMAT := "RGB_565"
-TARGET_RECOVERY_FSTAB := device/htc/shooterk/ramdisk/fstab.shooterk
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 838859776
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 1252770816
+BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16777216
+
+TARGET_RECOVERY_FSTAB := device/htc/shooter/ramdisk/fstab.shooterk
+TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
+TARGET_RECOVERY_UI_LIB := librecovery_ui_shooterk
 TARGET_RECOVERY_INITRC := device/htc/shooterk/recovery/init.rc
-BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/htc/shooterk/recovery/recovery_keys.c
-
-DEVICE_RESOLUTION := 540x960
-RECOVERY_GRAPHICS_USE_LINELENGTH := true
-TW_EXTERNAL_STORAGE_PATH := "/sdcard"
-TW_EXTERNAL_STORAGE_MOUNT_POINT := "sdcard"
-TW_DEFAULT_EXTERNAL_STORAGE := true
-
-TW_FLASH_FROM_STORAGE := true
-TW_NO_EXFAT := true
-TW_INCLUDE_DUMLOCK := true
-TW_BRIGHTNESS_PATH := /sys/devices/platform/msm_fb.524288/leds/lcd-backlight/brightness
-TW_MAX_BRIGHTNESS := 255
+BOARD_HAS_NO_SELECT_BUTTON := true
+BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_15x24.h\"
