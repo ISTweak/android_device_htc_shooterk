@@ -46,15 +46,15 @@ BOARD_USE_NEW_LIBRIL_HTC := true
 #BOARD_HAVE_SQN_WIMAX := true
 
 # Kernel Details
-TARGET_KERNEL_CONFIG := shooter_defconfig
 BOARD_KERNEL_CMDLINE := console=ttyHSL0 androidboot.hardware=shooterk no_console_suspend=1
 BOARD_KERNEL_BASE := 0x48000000
 BOARD_KERNEL_PAGE_SIZE := 2048
 
 # Kernel
-TARGET_KERNEL_SOURCE   := kernel/htc/shooter
-TARGET_KERNEL_CUSTOM_TOOLCHAIN := sm-arm-eabi-4.8
-TARGET_GCC_VERSION_ARM := sm-arm-eabi-4.8
+TARGET_KERNEL_CONFIG := shooter_defconfig
+TARGET_KERNEL_SOURCE := kernel/htc/shooterk
+TARGET_KERNEL_CUSTOM_TOOLCHAIN := sm-arm-eabi-4.10
+#TARGET_GCC_VERSION_ARM := sm-arm-eabi-4.8
 
 #ION
 TARGET_USES_ION := true
