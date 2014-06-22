@@ -49,12 +49,11 @@ BOARD_USE_NEW_LIBRIL_HTC := true
 BOARD_KERNEL_CMDLINE := console=ttyHSL0 androidboot.hardware=shooterk no_console_suspend=1
 BOARD_KERNEL_BASE := 0x48000000
 BOARD_KERNEL_PAGE_SIZE := 2048
+BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01400000
 
 # Kernel
 TARGET_KERNEL_CONFIG := shooter_defconfig
 TARGET_KERNEL_SOURCE := kernel/htc/shooterk
-TARGET_KERNEL_CUSTOM_TOOLCHAIN := sm-arm-eabi-4.10
-#TARGET_GCC_VERSION_ARM := sm-arm-eabi-4.8
 
 #ION
 TARGET_USES_ION := true
@@ -95,23 +94,38 @@ TARGET_RELEASETOOLS_EXTENSIONS := device/htc/shooterk
 # mmcblk0p34: 007ffa00 00000200 "udata_wimax"
 
 # Custom lun file path
-TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/class/android_usb/android0/f_mass_storage/lun%d/file"
+#TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/class/android_usb/android0/f_mass_storage/lun%d/file"
+TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/msm_otg/msm_hsusb/gadget/lun%d/file"
 
 TARGET_USERIMAGES_USE_EXT4 := true
+TARGET_USERIMAGES_USE_F2FS := true
 BOARD_FLASH_BLOCK_SIZE := 262144
 BOARD_SDCARD_DEVICE_PRIMARY := /dev/block/mmcblk1p1
 BOARD_SDCARD_DEVICE_SECONDARY := /dev/block/mmcblk1
 BOARD_SDEXT_DEVICE := /dev/block/mmcblk1p2
+BOARD_USES_MMCUTILS := true
 BOARD_HAS_NO_MISC_PARTITION := true
-
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 838859776
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 1252770816
 BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16777216
 
 TARGET_RECOVERY_FSTAB := device/htc/shooterk/ramdisk/fstab.shooterk
-TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
-TARGET_RECOVERY_UI_LIB := librecovery_ui_shooterk
+#TARGET_RECOVERY_FSTAB := device/htc/shooterk/recovery/recovery.fstab
+TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 TARGET_RECOVERY_INITRC := device/htc/shooterk/recovery/init.rc
 BOARD_HAS_NO_SELECT_BUTTON := true
-BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_15x24.h\"
+#BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_15x24.h\"
+BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_10x18.h\"
+
+DEVICE_RESOLUTION := 540x960
+RECOVERY_GRAPHICS_USE_LINELENGTH := true
+TW_EXTERNAL_STORAGE_PATH := "/sdcard"
+TW_EXTERNAL_STORAGE_MOUNT_POINT := "sdcard"
+TW_DEFAULT_EXTERNAL_STORAGE := true
+
+TW_FLASH_FROM_STORAGE := true
+TW_NO_EXFAT := true
+TW_INCLUDE_DUMLOCK := true
+TW_BRIGHTNESS_PATH := /sys/devices/platform/msm_fb.591105/leds/lcd-backlight/brightness
+TW_MAX_BRIGHTNESS := 255

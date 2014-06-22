@@ -18,4 +18,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/shooterk.mk
+    $(LOCAL_DIR)/omni_shooterk.mk
