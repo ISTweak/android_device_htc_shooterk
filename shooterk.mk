@@ -106,9 +106,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Torch
 
+# DeviceSettings
+PRODUCT_PACKAGES += \
+    DeviceSettings
+
 # Kernel init.d script
 PRODUCT_COPY_FILES += \
-    device/htc/shooterk/config/99kernel:system/etc/init.d/99kernel \
     device/htc/shooterk/config/00_frandom:system/etc/init.d/00_frandom
 
 # Virgin voicemail
