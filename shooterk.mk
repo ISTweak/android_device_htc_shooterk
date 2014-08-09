@@ -134,6 +134,17 @@ ADDITIONAL_DEFAULT_PROPERTIES+=  ro.adb.secure=0
 PRODUCT_PROPERTY_OVERRIDES += \
     otaupdater.otaid=liquidshooterk
 
+# Change the default locale to Japanese.
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.product.locale.language=ja \
+    ro.product.locale.region=JP
+
+# Japanese font
+PRODUCT_COPY_FILES += \
+    device/htc/shooterk/config/fallback_fonts.xml:system/vendor/etc/fallback_fonts.xml \
+	frameworks/base/data/fonts/DroidSansJapanese.ttf:system/fonts/DroidSansJapanese.ttf
+	
+	
 # WiMAX support
 #PRODUCT_PACKAGES += \
 #    CMWimaxSettings
