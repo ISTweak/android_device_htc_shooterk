@@ -1,2 +1,2 @@
-add_lunch_combo liquid_shooterk-userdebug
+add_lunch_combo liquid_shooterk-eng
 
