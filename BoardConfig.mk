@@ -86,27 +86,39 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/msm_otg/msm_hsusb/gadg
 
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_FLASH_BLOCK_SIZE := 262144
+
+TARGET_RECOVERY_FSTAB := device/htc/shooterk/rootdir/etc/fstab.shooterk
+TARGET_RECOVERY_UI_LIB := librecovery_ui_shooterk
 BOARD_SDCARD_DEVICE_PRIMARY := /dev/block/mmcblk1p1
 BOARD_SDCARD_DEVICE_SECONDARY := /dev/block/mmcblk1
 BOARD_SDEXT_DEVICE := /dev/block/mmcblk1p2
 BOARD_USES_MMCUTILS := true
-BOARD_HAS_NO_MISC_PARTITION := true
-#BOARD_HAS_NO_SELECT_BUTTON := true
-
-RECOVERY_FSTAB_VERSION := 2
+BOARD_HAS_NO_SELECT_BUTTON := true
+#TARGET_RECOVERY_NO_MSM_BSP := true
 TARGET_RECOVERY_PIXEL_FORMAT := "RGB_565"
-TARGET_RECOVERY_FSTAB := device/htc/shooterk/ramdisk/fstab.shooterk
-TARGET_RECOVERY_INITRC := device/htc/shooterk/recovery/init.rc
+BOARD_RECOVERY_SWIPE := true
+TARGET_RECOVERY_LCD_BACKLIGHT_PATH := \"/sys/class/leds/lcd-backlight/brightness\"
+BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_15x24.h\"
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/htc/shooterk/recovery/recovery_keys.c
 
-DEVICE_RESOLUTION := 540x960
+# Twrp
+DEVICE_RESOLUTION = 540x960
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
+BOARD_HAS_NO_REAL_SDCARD := false
+TW_NO_SCREEN_BLANK := true
+HAVE_SELINUX := true
+TW_TARGET_USES_QCOM_BSP := true
+TW_BRIGHTNESS_PATH := /sys/class/leds/lcd-backlight/brightness
+TW_MAX_BRIGHTNESS := 255
 TW_EXTERNAL_STORAGE_PATH := "/sdcard"
 TW_EXTERNAL_STORAGE_MOUNT_POINT := "sdcard"
-TW_DEFAULT_EXTERNAL_STORAGE := true
-
-TW_FLASH_FROM_STORAGE := true
-TW_NO_EXFAT := true
+SP1_NAME := "wimax"
+SP1_DISPLAY_NAME := "WiMAX"
+SP1_BACKUP_METHOD := image
+SP1_MOUNTABLE := 0
+SP2_NAME := "udata_wimax"
+SP2_DISPLAY_NAME := "WiMAX Settings"
+SP2_BACKUP_METHOD := image
+SP2_MOUNTABLE := 0
 TW_INCLUDE_DUMLOCK := true
-TW_BRIGHTNESS_PATH := /sys/devices/platform/msm_fb.524288/leds/lcd-backlight/brightness
-TW_MAX_BRIGHTNESS := 255
+TW_INCLUDE_JB_CRYPTO := true

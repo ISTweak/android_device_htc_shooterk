@@ -22,19 +22,21 @@ DEVICE_PACKAGE_OVERLAYS += $(COMMON_PATH)/overlay-shooterk
 $(call inherit-product, device/htc/shooter-common/shooter-common.mk)
 
 # ramdisk stuffs
-PRODUCT_COPY_FILES += \
-    $(COMMON_PATH)/ramdisk/init.shooterk.rc:root/init.shooterk.rc \
-    $(COMMON_PATH)/ramdisk/init.shooterk.usb.rc:root/init.shooterk.usb.rc \
-    $(COMMON_PATH)/ramdisk/ueventd.shooterk.rc:root/ueventd.shooterk.rc \
-    $(COMMON_PATH)/ramdisk/fstab.shooterk:root/fstab.shooterk
+PRODUCT_PACKAGES += \
+    init.shooterk.rc \
+    init.shooterk.usb.rc \
+    ueventd.shooterk.rc \
+    fstab.shooterk
 
 ## recovery and custom charging
-PRODUCT_COPY_FILES += \
-    $(COMMON_PATH)/recovery/sbin/choice_fn:recovery/root/sbin/choice_fn \
-    $(COMMON_PATH)/recovery/sbin/power_test:recovery/root/sbin/power_test \
-    $(COMMON_PATH)/recovery/sbin/offmode_charging:recovery/root/sbin/offmode_charging \
-    $(COMMON_PATH)/recovery/sbin/detect_key:recovery/root/sbin/detect_key \
-    $(COMMON_PATH)/recovery/sbin/htcbatt:recovery/root/sbin/htcbatt
+PRODUCT_PACKAGES += \
+    init.recovery.shooterk.rc \
+    choice_fn \
+    detect_key \
+    htcbatt \
+    offmode_charging \
+    power_test \
+    twrp.fstab
 
 ## dsp Audio
 PRODUCT_COPY_FILES += \
