@@ -27,15 +27,17 @@ PRODUCT_COPY_FILES += \
     device/htc/shooterk/ramdisk/init.shooterk.rc:root/init.shooterk.rc \
     device/htc/shooterk/ramdisk/init.shooterk.usb.rc:root/init.shooterk.usb.rc \
     device/htc/shooterk/ramdisk/ueventd.shooterk.rc:root/ueventd.shooterk.rc \
-    device/htc/shooterk/ramdisk/fstab.shooterk:root/fstab.shooterk
-
+    device/htc/shooterk/ramdisk/fstab.shooterk:root/fstab.shooterk \
+    device/htc/shooterk/recovery/init.recovery.shooterk.rc:root/init.recovery.shooterk.rc
+	
 ## recovery and custom charging
-PRODUCT_COPY_FILES += \
-    device/htc/shooterk/recovery/sbin/choice_fn:recovery/root/sbin/choice_fn \
-    device/htc/shooterk/recovery/sbin/power_test:recovery/root/sbin/power_test \
-    device/htc/shooterk/recovery/sbin/offmode_charging:recovery/root/sbin/offmode_charging \
-    device/htc/shooterk/recovery/sbin/detect_key:recovery/root/sbin/detect_key \
-    device/htc/shooterk/recovery/sbin/htcbatt:recovery/root/sbin/htcbatt
+PRODUCT_PACKAGES += \
+	choice_fn \
+	power_test \
+	offmode_charging \
+	detect_key \
+	htcbatt \
+	twrp.fstab
 
 ## dsp Audio
 PRODUCT_COPY_FILES += \
