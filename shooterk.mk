@@ -32,10 +32,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     init.recovery.shooterk.rc \
     choice_fn \
+    power_test \
+    offmode_charging \
     detect_key \
     htcbatt \
-    offmode_charging \
-    power_test \
     twrp.fstab
 
 ## dsp Audio
@@ -107,9 +107,16 @@ PRODUCT_PACKAGES += \
     e2fsck \
     setup_fs
 
-# WiMAX support
-PRODUCT_PACKAGES += \
-    CMWimaxSettings
+# Change the default locale to Japanese.
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.product.locale.language=ja \
+    ro.product.locale.region=JP
+
+# Japanese font
+PRODUCT_COPY_FILES += \
+    device/htc/shooterk/config/fallback_fonts.xml:system/vendor/etc/fallback_fonts.xml \
+	frameworks/base/data/fonts/DroidSansJapanese.ttf:system/fonts/DroidSansJapanese.ttf
+	
 
 # call the proprietary setup
 $(call inherit-product, vendor/htc/shooterk/shooterk-vendor.mk)
