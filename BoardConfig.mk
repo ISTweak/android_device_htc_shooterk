@@ -97,14 +97,16 @@ TARGET_RELEASETOOLS_EXTENSIONS := device/htc/shooterk
 # mmcblk0p34: 007ffa00 00000200 "udata_wimax"
 
 # Custom lun file path
-TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/msm_otg/msm_hsusb/gadget/lun0/file"
+TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/msm_otg/msm_hsusb/gadget/lun%d/file"
 
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_FLASH_BLOCK_SIZE := 262144
+TARGET_RECOVERY_UI_LIB := librecovery_ui_shooterk
 BOARD_SDCARD_DEVICE_PRIMARY := /dev/block/mmcblk1p1
 BOARD_SDCARD_DEVICE_SECONDARY := /dev/block/mmcblk1
 BOARD_SDEXT_DEVICE := /dev/block/mmcblk1p2
 BOARD_USES_MMCUTILS := true
+BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_HAS_NO_MISC_PARTITION := true
 
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 838859776
@@ -114,8 +116,10 @@ BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16777216
 
 TARGET_RECOVERY_FSTAB := device/htc/shooterk/ramdisk/fstab.shooterk
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
-BOARD_HAS_NO_SELECT_BUTTON := true
+BOARD_RECOVERY_SWIPE := true
+TARGET_RECOVERY_LCD_BACKLIGHT_PATH := \"/sys/class/leds/lcd-backlight/brightness\"
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_10x18.h\"
+BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/htc/shooterk/recovery/recovery_keys.c
 
 DEVICE_RESOLUTION := 540x960
 RECOVERY_GRAPHICS_USE_LINELENGTH := true

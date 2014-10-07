@@ -27,8 +27,7 @@ PRODUCT_COPY_FILES += \
     device/htc/shooterk/ramdisk/init.shooterk.rc:root/init.shooterk.rc \
     device/htc/shooterk/ramdisk/init.shooterk.usb.rc:root/init.shooterk.usb.rc \
     device/htc/shooterk/ramdisk/ueventd.shooterk.rc:root/ueventd.shooterk.rc \
-    device/htc/shooterk/ramdisk/fstab.shooterk:root/fstab.shooterk \
-    device/htc/shooterk/recovery/init.recovery.shooterk.rc:root/init.recovery.shooterk.rc
+    device/htc/shooterk/ramdisk/fstab.shooterk:root/fstab.shooterk
 	
 ## recovery and custom charging
 PRODUCT_PACKAGES += \
