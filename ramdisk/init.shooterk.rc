@@ -227,10 +227,10 @@ service dhcpcd_bt-pan /system/bin/dhcpcd -ABKL
     disabled
     oneshot
 
-service dhcpWimax /system/bin/dhcpcd -ABKL -f /etc/wimax/dhcp/wimaxDhcp.conf  wimax0
-    class main
-    disabled
-    oneshot
+#service dhcpWimax /system/bin/dhcpcd -ABKL -f /etc/wimax/dhcp/wimaxDhcp.conf  wimax0
+#    class main
+#    disabled
+#    oneshot
 
 service iprenew_wlan0 /system/bin/dhcpcd -n
     class main
